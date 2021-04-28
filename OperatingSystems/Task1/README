@@ -1,0 +1,66 @@
+========================================================================
+Author: Oleg Semenov,                               Cracow, 15.03.2020
+========================================================================
+
+* Content:
+============
+
+This directory contains 5 programs connected with process management:
+------------------------------------------------------------------------
+
+A.  A program that prints UID, GID, PID, PPID and PGID of its process.
+
+B.  A program that forks itself in a loop, then prints out IDs as in the
+    program A, for each one of the child processes.
+    (using wait() function)
+
+C.  Another version of program B, but with an implementation of sleep()
+    function and without wait() function. The effect is that the main
+    process dies and all of the child processes are "adopted" by systemd
+    process which is shown using pstree linux command combined with
+    regex search.
+
+D.  A modified version of program B, that uses sleep() function to print
+    the processes in chronological order.
+
+E.  A modified version of program D, that makes each child process
+    a leader of its own process group.
+
+------------------------------------------------------------------------
+
+Example process ancestry tree after fork looped 3 times looks like this:
+
+PID: 11005, PPID: 10997, PGID: 10997
+ ├PID: 11006, PPID: 11005, PGID: 10997
+ │ ├PID: 11013, PPID: 11006, PGID: 10997
+ │ │ └PID: 11017, PPID: 11013, PGID: 10997
+ │ └PID: 11014, PPID: 11006, PGID: 10997
+ ├PID: 11007, PPID: 11005, PGID: 10997
+ │ └PID: 11015, PPID: 11007, PGID: 10997
+ └PID: 11008, PPID: 11005, PGID: 10997     
+
+------------------------------------------------------------------------
+
+After using fork() function n times (for example in a loop) there exists
+2^n processes: 1 main process and 7 child ones. This happens because fork
+function copies a process, so that doubles the amount of processes each
+time the fork is used.
+
+------------------------------------------------------------------------
+
+* Running the programs:
+=========================
+
+The directory contains a makefile for the ease of compilation, as well
+as cleaning and compressing the directory to an archive.
+
+-> To run each program use make run_(name of program) e.g.:
+       make run_a
+
+-> To clean the directory (remove unwanted files):
+       make clean
+
+-> To compress the directory into a .tar.gz archive:
+       make tar
+
+========================================================================

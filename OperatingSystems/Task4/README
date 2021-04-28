@@ -1,0 +1,32 @@
+========================================================================
+Author: Oleg Semenov,                               Cracow, 22.04.2020
+========================================================================
+
+* Content:
+============
+
+This directory contains a program that tests out the pipe function
+
+------------------------------------------------------------------------
+
+The program copies the content of the input.txt file into a new file
+(output.txt) using the dynamically allocated buffor and pipe function.
+
+------------------------------------------------------------------------
+
+* Running the program:
+=========================
+
+The directory contains a makefile for the ease of compilation, as well
+as cleaning and compressing the directory to an archive.
+
+-> To run program:
+       make run
+
+-> To clean the directory (remove unwanted files):
+       make clean
+
+-> To compress the directory into a .tar.gz archive:
+       make tar
+
+========================================================================

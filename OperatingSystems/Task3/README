@@ -1,0 +1,56 @@
+========================================================================
+Author: Oleg Semenov,                               Cracow, 07.04.2020
+========================================================================
+
+* Content:
+============
+
+This directory contains three programs that test out the signal handling
+
+------------------------------------------------------------------------
+
+The first program sets a user-selected signal handling mode:
+
+->  default
+->  ignore
+->  custom
+
+The second one fork-execs the first one and sets a user-selected signal
+handling mode in it, then it sends a kill signal of a selected choice 
+to the already mentioned child process.
+
+The third program creates a child process which becomes a leader of its
+own group and also spawns its own child processes. Then the main process
+sends a signal to the whole new-born group of processes.
+
+
+------------------------------------------------------------------------
+
+* Running the program:
+=========================
+
+The directory contains a makefile for the ease of compilation, as well
+as cleaning and compressing the directory to an archive.
+
+To run the programs you need to select one of the signal handling modes
+and a signal that is supposed to be handled.
+e.g.:
+       $ ./a.x ignore 20
+Check "kill -l" for the list of available signals.
+
+-> To run a test of the first program using "custom 2" setting:
+       make test_a
+
+-> To run a test of the second program using "custom 2" setting:
+       make test_b
+
+-> To run a test of the third program using "default 2" setting:
+       make test_c
+
+-> To clean the directory (remove unwanted files):
+       make clean
+
+-> To compress the directory into a .tar.gz archive:
+       make tar
+
+========================================================================

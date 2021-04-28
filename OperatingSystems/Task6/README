@@ -1,0 +1,38 @@
+========================================================================
+Autor: Оleg Semenov,                               Cracow, 07.06.2020
+========================================================================
+
+* Content:
+============
+
+This directory contains a program that tests out semaphores in POSIX
+
+-----------------------------------------------------------------------
+
+Here I implemented mutual exclusion for processes, with POSIX standard
+named semaphores. For a demonstration purposes the program shows
+different info about processes before, during and after critical section.
+The program contains these files:
+   1)process.c
+   2)mysem.c, mysem.h
+   3)creator.c
+   4)number.txt
+
+------------------------------------------------------------------------
+
+* Running the program:
+=========================
+
+The directory contains a makefile for the ease of compilation, as well
+as cleaning and compressing the directory to an archive.
+
+-> To run the program use:
+       make run
+
+-> To clean the directory (remove unwanted files):
+       make clean
+
+-> To compress the directory into a .tar.gz archive:
+       make tar
+
+========================================================================

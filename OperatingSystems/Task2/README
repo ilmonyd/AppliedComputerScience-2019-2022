@@ -1,0 +1,49 @@
+========================================================================
+Author: Oleg Semenov,                               Cracow, 24.03.2020
+========================================================================
+
+* Content:
+============
+
+This directory contains a program using fork() with execl(), and
+a simple program that prints out the IDs of its process.
+
+------------------------------------------------------------------------
+
+First one is a program that forks itself in a loop, then starts another
+executable via execl() function, which prints out its process' IDs.The 
+main executable i.e. main.x requires two arguments - path to an 
+executable and it's name. For example:
+$ ./main.x /bin/ls ls
+You can test the program using your own executables after running make.
+
+Second one is just a very simple program that prints out UID, GID, PID,
+PPID and PGID of itself.
+
+------------------------------------------------------------------------
+
+The program that is passed to the execl() function here will run 3 times
+because as the execl() replaces the calling process image with a new 
+process image. (having no more fork() function in it)
+
+------------------------------------------------------------------------
+
+* Running the program:
+=========================
+
+The directory contains a makefile for the ease of compilation, as well
+as cleaning and compressing the directory to an archive.
+
+-> To run the program with predefined executables use:
+       make run
+
+-> To run a test of the fork() + execl() using ls program as executable:
+       make test
+
+-> To clean the directory (remove unwanted files):
+       make clean
+
+-> To compress the directory into a .tar.gz archive:
+       make tar
+
+========================================================================

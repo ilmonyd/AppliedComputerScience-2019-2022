@@ -1,0 +1,42 @@
+========================================================================
+Author: Oleg Semenov,                               Cracow, 28.04.2020
+========================================================================
+
+* Content:
+============
+
+This directory contains three programs that test out the FIFO.
+
+------------------------------------------------------------------------
+
+Two programs are producer and consumer programs, which read data from
+file then push it to FIFO and read data from FIFO then write it to file
+respectively.
+
+The third one is a simple main program which runs prior ones in separate
+processes.
+
+Task a involves running the whole process using main program.
+Task b runs producer and consumer programs in separate xterm sessions.
+
+------------------------------------------------------------------------
+
+* Running the program:
+=========================
+
+The directory contains a makefile for the ease of compilation, as well
+as cleaning and compressing the directory to an archive.
+
+-> To run task a:
+       make run_a
+
+-> To run task b:
+       make run_b
+
+-> To clean the directory (remove unwanted files):
+       make clean
+
+-> To compress the directory into a .tar.gz archive:
+       make tar
+
+========================================================================
