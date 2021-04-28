@@ -1,0 +1,36 @@
+%!PS
+<< /PageSize [500 500] >> setpagedevice
+
+/density 10 def
+
+/Line {
+    /lim exch def
+    /l2 exch def
+    /l1 exch def 
+    l1 lim moveto
+    lim l2 l1 sub lineto
+    stroke
+    lim l1 moveto
+    l2 l1 sub lim lineto
+    stroke
+} def
+
+/Line2 {
+    /lim exch def
+    /l2 exch def
+    /l1 exch def 
+    l2 l1 sub lim moveto
+    l2 lim sub l2 l1 sub lineto
+    stroke
+    lim l1 moveto
+    lim l2 l1 sub lineto
+    stroke
+} def
+
+
+100 density 400 {   500 100 Line} for
+100 density 400 {   500 400 Line} for
+100 density 400 {   500 100 Line2} for
+100 density 400 {   500 400 Line2} for
+
+showpage
