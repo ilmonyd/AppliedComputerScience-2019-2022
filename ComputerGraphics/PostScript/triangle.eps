@@ -1,0 +1,19 @@
+<< /PageSize [300 300] >> setpagedevice
+
+/mm 2.8346456693 def
+/SideLen 50 mm mul def
+
+/CenterY currentpagedevice /PageSize get 1 get 2 div def
+/CenterX currentpagedevice /PageSize get 0 get 2 div def
+
+CenterX SideLen 2 div sub CenterY SideLen 3 div sub translate
+0 0 moveto
+SideLen 0 lineto
+SideLen 0 translate
+120 rotate 
+SideLen 0 lineto
+closepath
+gsave
+0 0.6 1 setrgbcolor fill
+grestore
+stroke

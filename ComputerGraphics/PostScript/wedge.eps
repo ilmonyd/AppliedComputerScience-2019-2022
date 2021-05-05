@@ -1,0 +1,38 @@
+<< /PageSize [500 500] >> setpagedevice
+
+/width  currentpagedevice /PageSize get 0 get def
+/height currentpagedevice /PageSize get 1 get def
+/Xthird width 3 div def
+/Ythird height 3 div def
+
+
+/Wedge {
+    /Join exch def
+    /Cap exch def
+    width 15 div height -6 div moveto
+    width 7.5 div height -30 div lineto
+    width 3.75 div height -3.75 div lineto
+    Join setlinejoin
+    Cap setlinecap
+    gsave
+    width 50 div setlinewidth
+    0 1 0 setrgbcolor
+    stroke
+    grestore
+    1 setlinewidth
+    1 0 0 setrgbcolor
+    stroke
+} def
+
+0 currentpagedevice /PageSize get 1 get translate
+save
+
+0 1 2 {
+    /a exch def
+    0 1 2 {
+        /b exch def
+        grestoreall
+        Xthird a mul Ythird b mul -1 mul translate
+        a b Wedge
+    } for
+} for
