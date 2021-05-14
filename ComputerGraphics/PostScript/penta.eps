@@ -1,0 +1,45 @@
+<< /PageSize [600 250] >> setpagedevice
+
+/sc 100 def
+
+/CenterY currentpagedevice /PageSize get 1 get 2 div def
+/CenterX currentpagedevice /PageSize get 0 get 2 div def
+
+CenterX sc 1.5 mul sub CenterY translate
+
+/star {
+	/r 1 def
+    0 0 r 0 360 arc
+    closepath
+    gsave
+    133 255 div 186 255 div 161 255 div setrgbcolor
+    fill
+    grestore
+    stroke
+    newpath
+    0 r moveto
+    5 {
+	    144 neg rotate
+	    0 r lineto
+    } repeat
+    closepath
+} def
+
+sc sc scale
+1 sc div setlinewidth
+
+star
+gsave
+206 255 div 237 255 div 219 255 div setrgbcolor 
+fill
+grestore
+stroke
+
+3 0 translate
+
+star
+gsave
+206 255 div 237 255 div 219 255 div setrgbcolor 
+eofill
+grestore
+stroke

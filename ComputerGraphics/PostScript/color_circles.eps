@@ -1,0 +1,33 @@
+<< /PageSize [600 250] >> setpagedevice
+
+/SideLen 100 def
+10 setlinewidth
+
+/CenterY currentpagedevice /PageSize get 1 get 2 div def
+/CenterX currentpagedevice /PageSize get 0 get 2 div def
+
+CenterX SideLen 1.5 mul sub CenterY translate
+
+/ColorCircle {
+	/n exch def
+	1 1 100 {
+		/r exch def
+		0 1 n 1 sub {
+			/iter exch def
+			360 n div rotate
+			newpath
+			0 0 r 0 360 n div arc
+			closepath
+			gsave
+			360 n div iter mul 360 div r 100 div 1 sethsbcolor
+			stroke
+			grestore
+		} for
+	} for
+} def
+
+60 ColorCircle
+
+SideLen 3 mul 0 translate
+
+360 ColorCircle
