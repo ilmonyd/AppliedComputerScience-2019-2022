@@ -1,0 +1,41 @@
+<< /PageSize [300 300] >> setpagedevice
+
+/mm 2.8346456693 def
+%/SideLen 50 mm mul def
+%/rad 15 def
+
+/CenterY currentpagedevice /PageSize get 1 get 2 div def
+/CenterX currentpagedevice /PageSize get 0 get 2 div def
+
+/Triangle {
+	/rad exch def
+	/SideLen exch def
+
+	newpath
+
+	CenterX SideLen 2 div sub CenterY SideLen 3 div sub translate
+	SideLen 2 div 0 moveto
+
+	SideLen 0 SideLen 4 div 3 mul 3 sqrt 2 div SideLen 2 div mul rad arct
+
+	SideLen 4 div 3 mul 3 sqrt 2 div SideLen 2 div mul lineto
+
+	SideLen 2 div 3 sqrt 2 div SideLen mul SideLen 4 div 3 sqrt 2 div SideLen 2 div mul rad arct
+
+	SideLen 4 div 3 sqrt 2 div SideLen 2 div mul lineto
+
+	0 0 SideLen 2 div 0 rad arct
+	SideLen 2 div 0 lineto
+
+	closepath
+} def
+
+60 mm mul 15 Triangle
+
+gsave
+206 255 div 237 255 div 219 255 div setrgbcolor
+fill
+grestore
+133 255 div 186 255 div 161 255 div setrgbcolor
+5 setlinewidth
+stroke
