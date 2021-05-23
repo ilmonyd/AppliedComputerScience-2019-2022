@@ -1,0 +1,98 @@
+<< /PageSize [300 400] >> setpagedevice
+
+
+/CenterY currentpagedevice /PageSize get 1 get 2 div def
+/CenterX currentpagedevice /PageSize get 0 get 2 div def
+
+/fsize 36 def
+/h 1 def
+/s 1 def
+/v 1 def
+
+/Frame {
+    /ury exch def
+    /urx exch def
+    /lly exch def
+    /llx exch def
+    /width urx llx sub m  add def
+    /height ury lly sub fsize add def
+    newpath
+    m neg 2 div fsize neg 2 div translate
+    0 r moveto
+    0 height width height r arcto 4{pop} repeat
+    width height width 0 r arcto  4{pop} repeat
+    width 0 0 0 r arcto  4{pop} repeat
+    0 0 0 height r arcto  4{pop} repeat
+    closepath
+    stroke
+} def
+
+/FramePrem {
+    /ury exch def
+    /urx exch def
+    /lly exch def
+    /llx exch def
+    /width urx llx sub m  add def
+    /height ury lly sub fsize add def
+    newpath
+    m neg 2 div fsize neg 2 div translate
+    0 r moveto
+    0 height width height r arcto 4{pop} repeat
+    width height width 0 r arcto  4{pop} repeat
+    width 0 0 0 r arcto  4{pop} repeat
+    0 0 0 height r arcto  4{pop} repeat
+    closepath
+    gsave
+    h s 10 div v sethsbcolor
+    fill
+    grestore
+    h s v sethsbcolor
+    stroke
+} def
+
+/Text {
+    gsave
+    /r exch def
+    /msg exch def
+    /Times-Roman fsize selectfont 0 0 moveto msg stringwidth pop
+    neg 2 div fsize neg 3 div translate
+    /Times-Roman fsize selectfont 0 0 moveto (M) stringwidth pop
+    /m exch def
+    /Times-Roman fsize selectfont msg show 
+    msg false charpath
+    pathbbox 
+    Frame
+    grestore
+} def
+
+/TextPrem {
+    gsave
+	/r exch def
+	/msg exch def
+    /Times-Roman fsize selectfont 0 0 moveto msg stringwidth pop
+    neg 2 div fsize neg 3 div translate
+    /Times-Roman fsize selectfont 0 0 moveto (M) stringwidth pop
+    /m exch def
+    msg false charpath
+    pathbbox 
+    FramePrem
+    m 2 div fsize 2 div translate
+    0 0 moveto
+    h s v sethsbcolor
+    /Times-Roman fsize selectfont msg show
+    stroke
+    grestore
+} def
+
+CenterX currentpagedevice /PageSize get 1 get 4 div 3 mul translate
+0 0 moveto
+
+(Nintendo) 31 Text
+
+0 currentpagedevice /PageSize get 1 get 4 div neg translate
+
+(Test) 10 TextPrem
+
+0 currentpagedevice /PageSize get 1 get 4 div neg translate
+
+(Image) 0 TextPrem
